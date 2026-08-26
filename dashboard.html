@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | PT Human Admin</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+    <aside class="sidebar">
+
+        <img src="../images/logo.png" alt="Logo">
+
+
+        <h2>
+            PT Human Admin
+        </h2>
+
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    الرئيسية
+                </a>
+            </li>
+
+
+            <li>
+                <a href="add-product.html">
+                    <i class="fa-solid fa-plus"></i>
+                    إضافة منتج
+                </a>
+            </li>
+
+
+            <li>
+                <a href="products.html">
+                    <i class="fa-solid fa-box"></i>
+                    المنتجات
+                </a>
+            </li>
+
+
+            <li><a href="settings.html"><i class="fa-solid fa-gear"></i> إعدادات المتجر</a></li>
+
+            <li>
+                <a href="#" id="logout">
+
+    <i class="fa-solid fa-right-from-bracket"></i>
+
+    تسجيل خروج
+
+</a>
+            </li>
+
+
+        </ul>
+
+
+    </aside>
+
+
+
+    <main class="dashboard-content">
+
+
+        <h1>
+            مرحباً بك في لوحة التحكم
+        </h1>
+
+
+        <div class="cards">
+
+    <div class="dashboard-card">
+
+        <i class="fa-solid fa-box"></i>
+
+        <h3>
+            المنتجات
+        </h3>
+
+        <span id="productsCount">
+            0
+        </span>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <h3>
+            الطلبات
+        </h3>
+
+        <span id="ordersCount">
+            0
+        </span>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <i class="fa-solid fa-users"></i>
+
+        <h3>
+            العملاء
+        </h3>
+
+        <span id="customersCount">
+            0
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     Orders Section
+========================= -->
+
+<section class="orders-section">
+
+    <div class="section-header">
+
+        <h2>
+            <i class="fa-solid fa-cart-shopping"></i>
+            الطلبات الأخيرة
+        </h2>
+
+    </div>
+
+
+    <div id="ordersList">
+
+        <p>
+            جاري تحميل الطلبات...
+        </p>
+
+    </div>
+
+</section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script src="../js/api.js"></script>
+
+<script src="../js/admin.js"></script>
+
+</body>
+
+</html>

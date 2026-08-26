@@ -1,0 +1,1380 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:"Cairo",sans-serif;
+
+    background:#F8FAFC;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+}
+
+.login-box{
+
+    background:#fff;
+
+    width:400px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    text-align:center;
+
+}
+
+.login-box img{
+
+    width:120px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+.login-box h2{
+
+    margin-bottom:30px;
+
+    color:#0F4C81;
+
+}
+
+.login-box input{
+
+    width:100%;
+
+    margin-bottom:15px;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+.login-box button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0F4C81;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+}
+.remember-me{
+
+    text-align:right;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+    color:#555;
+
+}
+
+
+.remember-me input{
+
+    width:auto;
+
+    margin-left:5px;
+
+}
+
+
+.login-box button i{
+
+    margin-left:8px;
+
+}
+
+
+.login-note{
+
+    margin-top:20px;
+
+    font-size:13px;
+
+    color:#777;
+
+}
+/* ======================
+   Dashboard
+====================== */
+
+
+.dashboard{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+
+/* Sidebar */
+
+.sidebar{
+
+    width:260px;
+
+    background:#0F4C81;
+
+    color:#fff;
+
+    padding:30px 20px;
+
+}
+
+
+.sidebar img{
+
+    width:100px;
+
+    display:block;
+
+    margin:0 auto 15px;
+
+}
+
+
+.sidebar h2{
+
+    text-align:center;
+
+    font-size:20px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+
+.sidebar ul li{
+
+    margin-bottom:15px;
+
+}
+
+
+.sidebar ul li a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+
+.sidebar ul li a:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+
+
+/* Dashboard Content */
+
+
+.dashboard-content{
+
+    flex:1;
+
+    padding:40px;
+
+    background:#F8FAFC;
+
+}
+
+
+.dashboard-content h1{
+
+    color:#0F4C81;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* Cards */
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.dashboard-card{
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    text-align:center;
+
+}
+
+
+
+.dashboard-card i{
+
+    font-size:35px;
+
+    color:#0F4C81;
+
+    margin-bottom:15px;
+
+}
+
+
+.dashboard-card h3{
+
+    margin-bottom:10px;
+
+}
+
+
+.dashboard-card span{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:#333;
+
+}
+/* ======================
+   Add Product Page
+====================== */
+
+
+.add-product{
+
+    min-height:100vh;
+
+    background:#F8FAFC;
+
+    padding:40px;
+
+}
+
+
+.add-product h1{
+
+    color:#0F4C81;
+
+    margin-bottom:30px;
+
+}
+
+
+
+#productForm{
+
+    background:#fff;
+
+    max-width:600px;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+#productForm input,
+#productForm select,
+#productForm textarea{
+
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-family:"Cairo",sans-serif;
+
+    font-size:15px;
+
+}
+
+
+
+#productForm textarea{
+
+    height:120px;
+
+    resize:none;
+
+}
+
+
+
+#productForm button{
+
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0F4C81;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+#productForm button:hover{
+
+    opacity:.9;
+
+}
+/* =====================
+   Admin Products
+===================== */
+
+.products-admin{
+
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+
+}
+
+
+.products-admin h1{
+
+    text-align:center;
+
+    color:#0F4C81;
+
+    margin-bottom:30px;
+
+}
+
+
+
+#productsList{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.admin-product-card{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    text-align:center;
+
+}
+
+
+
+.admin-product-card img{
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.admin-product-card h3{
+
+    color:#0F4C81;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.admin-product-card p{
+
+    margin:8px 0;
+
+    color:#555;
+
+}
+
+
+
+.admin-product-card button{
+
+    margin:10px 5px 0;
+
+    padding:10px 25px;
+
+    border:none;
+
+    border-radius:8px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-family:"Cairo",sans-serif;
+
+    font-weight:bold;
+
+}
+
+
+.admin-product-card button:first-child{
+
+    background:#0F4C81;
+
+}
+
+
+.admin-product-card button:last-child{
+
+    background:#dc2626;
+
+}
+
+/* =====================
+   Add / Edit Product
+===================== */
+
+.add-product-box{
+
+    width:90%;
+
+    max-width:600px;
+
+    margin:50px auto;
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+
+.add-product-box h1{
+
+    text-align:center;
+
+    color:#0F4C81;
+
+    margin-bottom:30px;
+
+}
+
+
+
+#editProductForm input,
+#editProductForm select,
+#editProductForm textarea{
+
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-family:"Cairo",sans-serif;
+
+    font-size:16px;
+
+}
+
+
+
+#editProductForm textarea{
+
+    height:120px;
+
+    resize:none;
+
+}
+
+
+
+#editProductForm button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0F4C81;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+.toast{
+
+    position:fixed;
+
+    top:30px;
+
+    right:30px;
+
+    background:#0F4C81;
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    z-index:9999;
+
+}
+/* ===========================
+   Admin Mobile Responsive
+=========================== */
+
+@media (max-width: 768px){
+
+    /* Dashboard */
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+
+    /* Sidebar */
+
+    .sidebar{
+        width:100%;
+        padding:20px 15px;
+    }
+
+    .sidebar img{
+        width:80px;
+    }
+
+    .sidebar h2{
+        font-size:18px;
+        margin-bottom:20px;
+    }
+
+    .sidebar ul{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:8px;
+    }
+
+    .sidebar ul li{
+        margin-bottom:0;
+    }
+
+    .sidebar ul li a{
+        padding:10px;
+        font-size:14px;
+    }
+
+
+    /* Dashboard Content */
+
+    .dashboard-content{
+        width:100%;
+        padding:25px 15px;
+    }
+
+    .dashboard-content h1{
+        font-size:25px;
+        text-align:center;
+    }
+
+
+    /* Dashboard Cards */
+
+    .cards{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .dashboard-card{
+        padding:25px 20px;
+    }
+
+
+    /* Add Product */
+
+    .add-product{
+        padding:25px 15px;
+    }
+
+    .add-product h1{
+        font-size:25px;
+        text-align:center;
+    }
+
+    #productForm{
+        width:100%;
+        padding:25px 20px;
+    }
+
+
+    /* Products Admin */
+
+    .products-admin{
+        width:100%;
+        padding:0 15px;
+        margin:30px auto;
+    }
+
+    .products-admin h1{
+        font-size:25px;
+    }
+
+    #productsList{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+
+    /* Add / Edit Product */
+
+    .add-product-box{
+        width:calc(100% - 30px);
+        margin:25px auto;
+        padding:25px 20px;
+    }
+
+    .add-product-box h1{
+        font-size:25px;
+    }
+
+
+    /* Login */
+
+    .login-box{
+        width:calc(100% - 30px);
+        padding:30px 20px;
+    }
+
+
+    /* Toast */
+
+    .toast{
+        top:15px;
+        right:15px;
+        left:15px;
+        text-align:center;
+    }
+
+}
+/* =========================
+   Orders Section
+========================= */
+
+.orders-section {
+    margin-top: 40px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: #222;
+    font-size: 24px;
+}
+
+
+/* =========================
+   Order Card
+========================= */
+
+.admin-order-card {
+    background: #f8f9fa;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.admin-order-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   Order Header
+========================= */
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.order-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.order-status {
+    background: #fff3cd;
+    color: #856404;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   Customer Info
+========================= */
+
+.order-customer {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.order-customer p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.order-customer strong {
+    color: #222;
+}
+
+
+/* =========================
+   Products
+========================= */
+
+.order-products {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.order-products h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.order-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-product:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================
+   Order Footer
+========================= */
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.order-footer strong {
+    color: #222;
+    font-size: 17px;
+}
+
+.order-footer span {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* =========================
+   Empty Orders
+========================= */
+
+.empty-orders {
+    text-align: center;
+    padding: 50px 20px;
+    color: #777;
+}
+
+.empty-orders i {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 768px) {
+
+    .orders-section {
+        padding: 20px 15px;
+    }
+
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-product {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+/* =========================
+   Fix Dashboard Scroll
+========================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.dashboard {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+}
+
+.sidebar {
+    min-height: 100vh;
+    height: auto;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+.dashboard-content {
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* الموبايل */
+@media (max-width: 768px) {
+
+    .dashboard {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .dashboard-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+}
+/* =========================
+   DASHBOARD SCROLL FIX
+========================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.dashboard-content {
+    flex: 1;
+    width: 100%;
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-y: auto !important;
+    }
+
+    .dashboard {
+        display: block;
+        min-height: 100vh;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .dashboard-content {
+        width: 100%;
+        min-height: auto;
+        height: auto !important;
+        padding: 20px;
+        overflow: visible !important;
+    }
+
+}
+/* =========================
+   FIX DASHBOARD SCROLL
+========================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.dashboard {
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.dashboard-main,
+.main-content,
+.admin-main,
+.dashboard-content {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+/* منع أي عنصر من قص المحتوى */
+.dashboard-container {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+}
+
+/* إظهار الإحصائيات */
+.stats,
+.stats-grid,
+.dashboard-stats,
+.stat-cards {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+}
+
+/* الطلبات الأخيرة */
+.orders-section,
+.recent-orders,
+.orders-list {
+    position: relative;
+    z-index: 1;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+/* تحسين السكرول */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+/* =========================
+   Admin Orders
+========================= */
+
+.orders-section {
+    margin-top: 30px;
+}
+
+.orders-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #222;
+}
+
+/* Orders Container */
+
+#ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Order Card */
+
+.admin-order-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    transition: 0.3s ease;
+}
+
+.admin-order-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* Order Header */
+
+.order-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 20px;
+}
+
+.order-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #222;
+}
+
+/* Status */
+
+.order-status {
+    background: #fff3cd;
+    color: #856404;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Customer Info */
+
+.order-customer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.order-customer p {
+    margin: 0;
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.order-customer strong {
+    color: #222;
+}
+
+/* Products */
+
+.order-products {
+    background: #f8f9fa;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.order-products h4 {
+    margin: 0 0 15px;
+    color: #222;
+}
+
+/* Product Inside Order */
+
+.order-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eeeeee;
+}
+
+.order-product:last-child {
+    margin-bottom: 0;
+}
+
+.order-product span {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Order Footer */
+
+.order-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee;
+}
+
+.order-footer strong {
+    font-size: 17px;
+    color: #222;
+}
+
+.order-footer span {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Empty Orders */
+
+.empty-orders {
+    text-align: center;
+    padding: 50px 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #eeeeee;
+}
+
+.empty-orders i {
+    font-size: 45px;
+    margin-bottom: 15px;
+    color: #aaa;
+}
+
+.empty-orders p {
+    margin: 0;
+    color: #777;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+    .admin-order-card {
+        padding: 18px;
+    }
+
+    .order-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .order-customer {
+        grid-template-columns: 1fr;
+    }
+
+    .order-product {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}

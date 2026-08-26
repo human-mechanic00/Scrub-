@@ -1,0 +1,24 @@
+{
+  "name": "human-mechanic-store",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Human Mechanic full-stack store",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "db:migrate": "node backend/scripts/migrate.js",
+    "admin:hash": "node backend/scripts/hash-password.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "zod": "^4.1.5"
+  }
+}
