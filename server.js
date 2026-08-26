@@ -13,9 +13,11 @@ const { query, transaction } = require('./db');
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
-const PROJECT_ROOT = path.join(__dirname, '..');
-const ROOT = path.join(PROJECT_ROOT, 'www');
-const UPLOADS = path.join(ROOT, 'uploads');
+const ROOT = __dirname;
+
+const UPLOADS = process.env.VERCEL
+  ? path.join('/tmp', 'uploads')
+  : path.join(ROOT, 'uploads');
 const JWT_SECRET = process.env.JWT_SECRET;
 
 if (!JWT_SECRET || JWT_SECRET.length < 32) {
@@ -372,27 +374,20 @@ app.use((err, req, res, next) => {
 async function start() {
   try {
     await query('SELECT 1');
-    await query(`CREATE TABLE IF NOT EXISTS schema_migrations (version INTEGER PRIMARY KEY, applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`);
-    const migrationDir = path.join(__dirname, 'migrations');
-    const migrations = fs.readdirSync(migrationDir).filter(f => /^\d+_.*\.sql$/.test(f)).sort();
-    const lock = await query('SELECT pg_try_advisory_lock(987654321) AS locked');
-    if (lock.rows[0].locked) {
-      for (const file of migrations) {
-        const version = Number(file.match(/^(\d+)_/)[1]);
-        const done = await query('SELECT 1 FROM schema_migrations WHERE version=$1', [version]);
-        if (!done.rowCount) {
-          const sql = fs.readFileSync(path.join(migrationDir, file), 'utf8');
-          await transaction(async (client) => { await client.query(sql); await client.query('INSERT INTO schema_migrations(version) VALUES($1)', [version]); });
-          console.log(`Applied database migration ${version}.`);
-        }
-      }
-      await query('SELECT pg_advisory_unlock(987654321)');
-    }
-    app.listen(PORT, () => console.log(`Human Mechanic running on port ${PORT}`));
+    console.log('Database connection OK.');
   } catch (err) {
-    console.error('Startup failed:', err);
-    process.exit(1);
+    console.error('Database connection failed:', err);
   }
 }
+
+if (!process.env.VERCEL) {
+  start().then(() => {
+    app.listen(PORT, () => {
+      console.log(`Human Mechanic running on port ${PORT}`);
+    });
+  });
+}
+
+module.exports = app;
 
 start();
