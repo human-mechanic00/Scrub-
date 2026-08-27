@@ -3,25 +3,13 @@
   "version": 2,
   "functions": {
     "api/index.js": {
-      "includeFiles": "backend/**"
+      "includeFiles": "**"
     }
   },
   "rewrites": [
     {
-      "source": "/api/:path*",
+      "source": "/(.*)",
       "destination": "/api/index.js"
-    },
-    {
-      "source": "/admin",
-      "destination": "/admin/login.html"
-    },
-    {
-      "source": "/admin/",
-      "destination": "/admin/login.html"
-    },
-    {
-      "source": "/admin/dashboard",
-      "destination": "/admin/dashboard.html"
     }
   ]
 }
