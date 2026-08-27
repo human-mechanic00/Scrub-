@@ -1,14 +1,27 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "functions": {
-    "backend/server.js": {
-      "includeFiles": "www/**"
+    "api/index.js": {
+      "includeFiles": "backend/**"
     }
   },
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/backend/server.js"
+      "source": "/api/:path*",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/login.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/login.html"
+    },
+    {
+      "source": "/admin/dashboard",
+      "destination": "/admin/dashboard.html"
     }
   ]
 }

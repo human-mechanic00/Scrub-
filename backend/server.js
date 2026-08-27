@@ -357,11 +357,33 @@ app.get('/api/admin/stats', requireAdmin, async (_, res, next) => {
   } catch (e) { next(e); }
 });
 
+// Static frontend files. Vercel rewrites browser requests to this Express function,
+// so every static path is resolved from the real www directory.
+const staticOptions = { maxAge: process.env.NODE_ENV === 'production' ? '1h' : 0 };
 app.use('/uploads', express.static(UPLOADS, { maxAge: '7d' }));
-app.use(express.static(ROOT, { extensions: ['html'], maxAge: process.env.NODE_ENV === 'production' ? '1h' : 0 }));
-app.get('/{*splat}', (req, res, next) => {
+app.use('/css', express.static(path.join(ROOT, 'css'), staticOptions));
+app.use('/js', express.static(path.join(ROOT, 'js'), staticOptions));
+app.use('/images', express.static(path.join(ROOT, 'images'), staticOptions));
+app.use('/admin', express.static(path.join(ROOT, 'admin'), { ...staticOptions, extensions: ['html'] }));
+app.use(express.static(ROOT, { ...staticOptions, extensions: ['html'] }));
+
+// Explicit pages. These run after the static middleware so exact files win,
+// and /admin/* can never fall through to the storefront homepage.
+app.get('/admin', (_, res) => res.sendFile(path.join(ROOT, 'admin', 'login.html')));
+app.get('/admin/', (_, res) => res.sendFile(path.join(ROOT, 'admin', 'login.html')));
+app.get('/admin/dashboard', (_, res) => res.sendFile(path.join(ROOT, 'admin', 'dashboard.html')));
+app.get('/admin/dashboard.html', (_, res) => res.sendFile(path.join(ROOT, 'admin', 'dashboard.html')));
+
+// Frontend fallback for known storefront routes only. Unknown /admin routes stay in admin.
+app.get('/', (_, res) => res.sendFile(path.join(ROOT, 'index.html')));
+app.get('/index.html', (_, res) => res.sendFile(path.join(ROOT, 'index.html')));
+
+app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) return next();
-  res.sendFile(path.join(ROOT, 'index.html'));
+  if (req.path.startsWith('/admin/')) {
+    return res.sendFile(path.join(ROOT, 'admin', 'login.html'));
+  }
+  return res.sendFile(path.join(ROOT, 'index.html'));
 });
 
 app.use((err, req, res, next) => {
