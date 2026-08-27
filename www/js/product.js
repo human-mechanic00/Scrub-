@@ -26,7 +26,7 @@ async function loadProduct() {
                     <span class="product-category">${product.category || ""}</span>
                     <div class="product-price">${product.price} جنيه</div>
                     <p class="product-description">${product.description || "لا يوجد وصف لهذا المنتج"}</p>
-                    <button class="add-to-cart-btn" onclick="addCurrentProductToCart()">
+                    <button class="add-to-cart-btn" id="addCurrentProductBtn" type="button">
                         <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
                     </button>
                 </div>
@@ -43,7 +43,17 @@ function addCurrentProductToCart() {
         id: currentProduct.id,
         name: currentProduct.name,
         price: currentProduct.price,
-        image: currentProduct.image
+        image: currentProduct.image,
+        stock: Number(currentProduct.stock ?? 999999),
+        options: currentProduct.options || {}
     });
 }
+
+// Bind the add-to-cart button after the product HTML is rendered.
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('#addCurrentProductBtn');
+    if (!btn) return;
+    addCurrentProductToCart();
+});
+
 loadProduct();
