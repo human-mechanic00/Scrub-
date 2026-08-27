@@ -1,15 +1,1 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>تم تأكيد الطلب | Human Mechanic</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body><main class="success-page"><div class="success-card"><div class="success-icon">✓</div><h1>تم استلام طلبك بنجاح 🎉</h1><p>شكرًا ليك! طلبك اتسجل عندنا وهيتم التواصل معاك لتأكيده.</p><strong>رقم الطلب: <span id="orderId">—</span></strong><a href="products.html" class="btn-primary">العودة للمنتجات</a></div></main><script>
-const params=new URLSearchParams(location.search);
-document.getElementById('orderId').textContent=params.get('id')||'—';
-const whatsapp=params.get('whatsapp');
-if(whatsapp){
-  const card=document.querySelector('.success-card');
-  const p=document.createElement('p');
-  p.textContent='جاري فتح واتساب لإرسال تفاصيل طلبك...';
-  card.appendChild(p);
-  const a=document.createElement('a');
-  a.href=whatsapp; a.className='btn-primary'; a.textContent='إرسال تفاصيل الطلب على واتساب'; a.target='_blank'; a.rel='noopener';
-  card.appendChild(a);
-  setTimeout(()=>{ window.location.href=whatsapp; },350);
-}
-</script></body></html>
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>تم تأكيد الطلب | Human Mechanic</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body><main class="success-page"><div class="success-card"><div class="success-icon">✓</div><h1>تم استلام طلبك بنجاح 🎉</h1><p>شكرًا ليك! طلبك اتسجل عندنا وهيتم التواصل معاك لتأكيده.</p><strong>رقم الطلب: <span id="orderId">—</span></strong><a href="products.html" class="btn-primary">العودة للمنتجات</a></div></main><script>document.getElementById('orderId').textContent=new URLSearchParams(location.search).get('id')||'—';</script></body></html>
