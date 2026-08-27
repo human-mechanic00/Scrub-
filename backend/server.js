@@ -14,7 +14,7 @@ const { query, transaction } = require('./db');
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const PROJECT_ROOT = path.join(__dirname, '..');
-const ROOT = path.join(PROJECT_ROOT, 'www');
+const ROOT = path.resolve(PROJECT_ROOT, 'www');
 const UPLOADS = process.env.VERCEL
   ? path.join('/tmp', 'uploads')
   : path.join(ROOT, 'uploads');

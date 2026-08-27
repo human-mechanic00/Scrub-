@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "functions": {
+    "backend/server.js": {
+      "includeFiles": [
+        "www/**",
+        "backend/migrations/**"
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/backend/server.js"
+    }
+  ]
+}
