@@ -2,10 +2,7 @@
   "version": 2,
   "functions": {
     "backend/server.js": {
-      "includeFiles": [
-        "www/**",
-        "backend/migrations/**"
-      ]
+      "includeFiles": "www/**"
     }
   },
   "rewrites": [
