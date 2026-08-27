@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Human Mechanic's Scrubs</title>
+    <meta name="description"
+    content="متجر متخصص في بيع الاسكرابات الطبية والبلاطي وأدوات العلاج الطبيعي والأسنان والصيدلة بجودة عالية.">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body>
+<header class="header">
+
+    <div class="container">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="The PT Human Mechanic's Scrubs">
+        </a>
+
+        <nav class="navbar">
+
+            <ul class="nav-links">
+
+                <li><a href="#hero">الرئيسية</a></li>
+
+                <li><a href="#categories">التصنيفات</a></li>
+
+                <li><a href="#featured-products">المنتجات</a></li>
+
+                <li><a href="#about">من نحن</a></li>
+
+                <li><a href="#contact">تواصل معنا</a></li>
+
+            </ul>
+
+        </nav>
+
+        <div class="header-actions">
+
+    <!-- Cart Button -->
+
+    <a href="cart.html" class="cart-btn">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span class="cart-count" id="cartCount">
+            0
+        </span>
+
+    </a>
+
+
+    <!-- WhatsApp Button -->
+
+    <a href="https://wa.me/201155747762"
+        class="whatsapp-btn"
+        target="_blank">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        واتساب
+
+    </a>
+
+
+    <!-- Mobile Menu -->
+
+    <button class="menu-btn">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+</div>
+
+    </div>
+
+</header>
+
+<main>
+
+   <section id="hero" class="hero">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="hero-badge">
+                ✨ جودة عالية للكوادر الطبية
+            </span>
+
+            <h1>
+                كل ما يحتاجه طالب وممارس المجال الطبي في مكان واحد
+            </h1>
+
+            <p>
+                نوفر اسكرابات طبية، بلاطي، وأدوات العلاج الطبيعي والأسنان والصيدلة
+                بأفضل جودة وأسعار تنافسية.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="products.html" class="btn-primary">
+                    تصفح المنتجات
+                </a>
+
+                <a href="https://wa.me/201155747762" class="btn-secondary" target="_blank">
+    تواصل واتساب
+</a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="images/hero.png" alt="Medical Scrubs">
+
+        </div>
+
+    </div>
+
+</section>
+    <section id="categories" class="categories">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>تصفح حسب التصنيف</h2>
+
+            <p>اختر القسم المناسب لك</p>
+
+        </div>
+
+        <div class="categories-grid">
+
+            <a href="products.html?category=اسكرابات%20طبية" class="category-card">
+                <i class="fa-solid fa-shirt"></i>
+                <h3>الاسكرابات الطبية</h3>
+            </a>
+
+            <a href="products.html?category=بلاطي" class="category-card">
+                <i class="fa-solid fa-user-doctor"></i>
+                <h3>البلاطي</h3>
+            </a>
+
+            <a href="products.html?category=صيدلة" class="category-card">
+                <i class="fa-solid fa-capsules"></i>
+                <h3>ادوات صيدلة</h3>
+            </a>
+
+            <a href="products.html?category=أسنان" class="category-card">
+                <i class="fa-solid fa-tooth"></i>
+                <h3>ادوات اسنان</h3>
+            </a>
+
+            <a href="products.html?category=علاج%20طبيعي" class="category-card">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h3>ادوات علاج طبيعي</h3>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </div>
+
+</section>
+
+    <section id="featured-products" class="featured-products">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>المنتجات المميزة</h2>
+            <p>أفضل المنتجات الأكثر طلبًا</p>
+        </div>
+
+        <div class="products-grid" id="featuredProducts">
+
+</div>
+</section>
+
+    <section class="featured-products extra-products-section"><div class="container"><div class="section-title"><h2>الأكثر مبيعًا 🔥</h2><p>المنتجات التي يختارها العملاء أكثر</p></div><div class="products-grid" id="bestSellingProducts"></div></div></section>
+<section class="featured-products extra-products-section"><div class="container"><div class="section-title"><h2>وصل حديثًا ✨</h2><p>أحدث المنتجات المضافة للمتجر</p></div><div class="products-grid" id="newProducts"></div></div></section>
+
+    <section id="about" class="about">
+
+    <div class="container about-container">
+
+        <div class="about-image">
+            <img src="images/about.jpg" alt="About PT Human">
+        </div>
+
+        <div class="about-text">
+
+            <span>من نحن</span>
+
+            <h2> Human Mechanic's Scrubs</h2>
+
+            <p>
+                نحن علامة تجارية متخصصة في توفير الاسكرابات الطبية، البلاطي،
+                وأدوات العلاج الطبيعي والأسنان والصيدلة، مع التركيز على الجودة،
+                الراحة، والتصميم العصري الذي يناسب جميع العاملين والطلاب في المجال الطبي.
+            </p>
+
+            <a href="index.html#about" class="btn-primary">
+                اعرف المزيد
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section id="why-us" class="why-us">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>لماذا تختار  Human mechanic؟</h2>
+            <p>نسعى لتقديم أفضل تجربة للكوادر الطبية</p>
+        </div>
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <i class="fa-solid fa-award"></i>
+                <h3>جودة عالية</h3>
+                <p>منتجات مختارة بعناية لتدوم مع الاستخدام اليومي.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h3>شحن سريع</h3>
+                <p>توصيل سريع لجميع المحافظات.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>دعم مستمر</h3>
+                <p>تواصل معنا في أي وقت عبر واتساب.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-tags"></i>
+                <h3>أسعار تنافسية</h3>
+                <p>أفضل قيمة مقابل الجودة.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section id="contact" class="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+    <h2>تواصل معنا</h2>
+    <p>نحن سعداء بالرد على جميع استفساراتكم</p>
+</div>
+
+<div class="contact-grid">
+
+    <a href="https://wa.me/201155747762" target="_blank" class="contact-card">
+        <i class="fa-brands fa-whatsapp"></i>
+        <h3>واتساب</h3>
+        <p>راسلنا مباشرة</p>
+    </a>
+
+    <a href="https://www.instagram.com/USERNAME" target="_blank" class="contact-card">
+        <i class="fa-brands fa-instagram"></i>
+        <h3>إنستجرام</h3>
+        <p>تابع أحدث المنتجات</p>
+    </a>
+
+    <a href="https://www.facebook.com/share/1DoJCQfPSj/" target="_blank" class="contact-card">
+        <i class="fa-brands fa-facebook"></i>
+        <h3>فيسبوك</h3>
+        <p>تواصل معنا عبر صفحتنا</p>
+    </a>
+
+</div>
+    </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="container footer-container">
+
+        <div class="footer-about">
+
+            <img src="images/logo.png" alt="PT Human">
+
+            <p>
+                 Human Mechanic متخصص في توفير الاسكرابات الطبية، البلاطي،
+                وأدوات الأسنان والصيدلة والعلاج الطبيعي بأفضل جودة.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>روابط سريعة</h3>
+
+            <a href="#hero">الرئيسية</a>
+            <a href="#featured-products">المنتجات</a>
+            <a href="#about">من نحن</a>
+            <a href="#contact">تواصل معنا</a>
+
+        </div>
+
+        <div class="footer-contact">
+
+            <h3>تواصل معنا</h3>
+
+            <a href="https://wa.me/201155747762" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    واتساب
+</a>
+
+            <a href="https://www.facebook.com/share/1DoJCQfPSj/">
+                <i class="fa-brands fa-facebook"></i>
+                فيسبوك
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+                إنستجرام
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026  Human Mechanic's Scrubs | جميع الحقوق محفوظة.
+
+    </div>
+<div class="designed-by">
+
+    تصميم وتطوير بواسطة
+    <a href="https://drmohamedmahmoud47-creator.github.io/" target="_blank">
+        Orbit
+    </a>
+
+    <span>|</span>
+
+    <a href="https://wa.me/201028698131" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        واتساب
+    </a>
+
+</div>
+
+</footer>
+
+<script src="js/api.js"></script>
+
+<script src="js/products.js"></script>
+
+
+<script src="js/cart.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سلة التسوق | PT Human Mechanic's Scrubs</title>
+
+    <meta name="description"
+        content="سلة التسوق الخاصة بمتجر PT Human Mechanic's Scrubs">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ============================
+     Header
+============================= -->
+
+<header class="header">
+
+    <div class="container">
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="images/logo.png"
+                alt="The PT Human Mechanic's Scrubs">
+
+        </a>
+
+
+        <nav class="navbar">
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        الرئيسية
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html">
+                        المنتجات
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#about">
+                        من نحن
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#contact">
+                        تواصل معنا
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <a href="products.html"
+                class="whatsapp-btn">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+                العودة للمنتجات
+
+            </a>
+
+
+            <button class="menu-btn">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ============================
+     Cart Section
+============================= -->
+
+<main>
+
+<section class="cart-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h1>
+                سلة التسوق
+            </h1>
+
+            <p>
+                راجع المنتجات التي اخترتها قبل إتمام الطلب
+            </p>
+
+        </div>
+
+
+        <!-- Cart Products -->
+
+        <div id="cartItems">
+
+            <p>
+                جاري تحميل السلة...
+            </p>
+
+        </div>
+
+
+        <!-- Cart Summary -->
+
+<div id="cartSummary"
+    class="cart-summary">
+
+    <h2>
+        بيانات العميل
+    </h2>
+
+
+    <!-- Customer Name -->
+
+    <div class="checkout-form-group">
+
+        <label for="customerName">
+            الاسم بالكامل
+        </label>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="اكتب اسمك بالكامل"
+            required
+        >
+
+    </div>
+
+
+    <!-- Customer Phone -->
+
+    <div class="checkout-form-group">
+
+        <label for="customerPhone">
+            رقم الهاتف
+        </label>
+
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="مثال: 011xxxxxxxx"
+            required
+        >
+
+    </div>
+
+
+    <div class="checkout-grid">
+      <div class="checkout-form-group"><label for="governorate">المحافظة</label><select id="governorate" required><option value="">اختر المحافظة</option></select></div>
+      <div class="checkout-form-group"><label for="area">المنطقة</label><input type="text" id="area" placeholder="المدينة / المركز / المنطقة" required></div>
+    </div>
+    <div class="checkout-form-group"><label for="customerAddress">العنوان بالتفصيل</label><textarea id="customerAddress" placeholder="الشارع، رقم العمارة، الدور، الشقة وأي علامة مميزة" rows="4" required></textarea></div>
+    <div class="payment-methods"><h3>طريقة الدفع</h3><label><input type="radio" name="paymentMethod" value="cod" checked> الدفع عند الاستلام</label><label class="disabled-payment"><input type="radio" name="paymentMethod" value="card"> الدفع بالكارت — قريبًا</label></div>
+    <div class="coupon-box"><label for="couponCode">كود الخصم</label><div><input id="couponCode" placeholder="مثال: HUMAN10"><button type="button" id="applyCoupon">تطبيق</button></div><small id="couponMessage" class="coupon-message"></small></div>
+    <div class="checkout-summary"><div><span>قيمة المنتجات</span><strong id="cartSubtotal">0 جنيه</strong></div><div><span>الشحن</span><strong id="shippingFee">—</strong></div><div><span>الخصم</span><strong id="discountAmount">0 جنيه</strong></div><div class="summary-total"><span>الإجمالي النهائي</span><strong id="cartTotal">0 جنيه</strong></div><p id="shippingNote">اختر المحافظة لحساب الشحن</p></div>
+    <button id="checkoutBtn" class="checkout-btn"><i class="fa-solid fa-check"></i> تأكيد الطلب</button>
+
+</div>
+
+
+
+<!-- ============================
+     Footer
+============================= -->
+
+<footer class="footer">
+
+    <div class="container footer-container">
+
+        <div class="footer-about">
+
+            <img
+                src="images/logo.png"
+                alt="PT Human">
+
+            <p>
+                PT Human متخصص في توفير الاسكرابات الطبية،
+                البلاطي، وأدوات الأسنان والصيدلة والعلاج الطبيعي
+                بأفضل جودة.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>
+                روابط سريعة
+            </h3>
+
+            <a href="index.html">
+                الرئيسية
+            </a>
+
+            <a href="products.html">
+                المنتجات
+            </a>
+
+            <a href="index.html#about">
+                من نحن
+            </a>
+
+            <a href="index.html#contact">
+                تواصل معنا
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 PT Human Mechanic's Scrubs |
+        جميع الحقوق محفوظة.
+
+    </div>
+
+<div class="designed-by">
+
+    تصميم وتطوير بواسطة
+    <a href="https://drmohamedmahmoud47-creator.github.io/" target="_blank">
+        Orbit
+    </a>
+
+    <span>|</span>
+
+    <a href="https://wa.me/201028698131" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        واتساب
+    </a>
+
+</div>
+</footer>
+
+
+<!-- ============================
+     Cart JS
+============================= -->
+
+<script src="js/api.js"></script>
+
+<script src="js/cart.js"></script>
+
+</body>
+
+</html>
+</body>
+
+</html>
