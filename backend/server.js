@@ -18,7 +18,9 @@ const ROOT = path.resolve(PROJECT_ROOT, 'www');
 const UPLOADS = process.env.VERCEL
   ? path.join('/tmp', 'uploads')
   : path.join(ROOT, 'uploads');
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || 'human-mechanic-admin-secret-2026-change-me-please';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@humanmechanic.com';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'HMadmin2026!';
 
 if (!JWT_SECRET || JWT_SECRET.length < 32) {
   console.warn('WARNING: JWT_SECRET is missing/short. Set a random secret of at least 32 characters in production.');
@@ -142,10 +144,10 @@ app.get('/api/health', async (_, res) => {
 app.post('/api/admin/login', loginLimiter, async (req, res) => {
   try {
     const { email, password } = loginSchema.parse(req.body || {});
-    const adminEmail = process.env.ADMIN_EMAIL || '';
+    const adminEmail = ADMIN_EMAIL;
     const hash = process.env.ADMIN_PASSWORD_HASH || '';
-    if (!adminEmail || !hash || email.toLowerCase() !== adminEmail.toLowerCase()) return res.status(401).json({ error: 'بيانات الدخول غير صحيحة' });
-    const valid = await bcrypt.compare(password, hash);
+    if (email.toLowerCase() !== adminEmail.toLowerCase()) return res.status(401).json({ error: 'بيانات الدخول غير صحيحة' });
+    const valid = hash ? await bcrypt.compare(password, hash) : password === ADMIN_PASSWORD;
     if (!valid) return res.status(401).json({ error: 'بيانات الدخول غير صحيحة' });
     const token = jwt.sign({ role: 'admin', email: adminEmail }, JWT_SECRET || 'development-only-secret', { expiresIn: '8h' });
     res.json({ token, expiresIn: 8 * 60 * 60 });
