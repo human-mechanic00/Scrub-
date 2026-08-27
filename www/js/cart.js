@@ -50,8 +50,36 @@ async function checkoutOrder(){
   if(payment_method==='card'){alert('الدفع بالكارت سيتم تفعيله قريبًا. اختر الدفع عند الاستلام حاليًا.');return;}
   const btn=document.getElementById('checkoutBtn'); if(btn){btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> جاري تأكيد الطلب...';}
   try{
-    const result=await apiFetch('/api/orders',{method:'POST',body:JSON.stringify({customer_name,customer_phone,governorate,area,customer_address,payment_method,coupon_code:appliedCoupon?.code||'',items:cart.map(p=>({product_id:Number(p.id),quantity:Number(p.quantity),options:p.options||{}}))})});
-    const order=result.order; cart=[]; appliedCoupon=null; saveCart(); updateCartCount(); window.location.href=`order-success.html?id=${encodeURIComponent(order.id)}`;
+    const result=await apiFetch('/api/orders',{method:'POST',body:JSON.stringify({customer_name,customer_phone,governorate,area,customer_address,payment_method,coupon_code:appliedCoupon?.code||'',items:cart.map(p=>({product_id:Number(p.id),quantity:Number(p.quantity),options:(p.options && !Array.isArray(p.options) && typeof p.options==='object') ? p.options : {}}))})});
+    const order=result.order;
+    // Save the order first; only after a successful response do we clear the cart and open WhatsApp.
+    cart=[]; appliedCoupon=null; saveCart(); updateCartCount();
+    const whatsappNumber='201155747762';
+    const lines=[];
+    lines.push('السلام عليكم، عملت طلب من Human Mechanic 🩺');
+    lines.push('🆔 رقم الطلب: #'+order.id);
+    lines.push('👤 الاسم: '+customer_name);
+    lines.push('📞 الهاتف: '+customer_phone);
+    lines.push('📍 المحافظة: '+governorate);
+    lines.push('📍 المنطقة: '+area);
+    lines.push('🏠 العنوان: '+customer_address);
+    lines.push('');
+    lines.push('🛍️ تفاصيل الطلب:');
+    (order.items||[]).forEach(item=>{
+      const qty=Number(item.quantity||1);
+      const price=Number(item.product_price||0);
+      lines.push('• '+item.product_name+' × '+qty+' — '+money(price*qty));
+    });
+    lines.push('');
+    lines.push('💵 قيمة المنتجات: '+money(order.subtotal));
+    lines.push('🚚 مصاريف الشحن: '+money(order.shipping_fee));
+    if(Number(order.discount_amount||0)>0) lines.push('🏷️ الخصم: '+money(order.discount_amount));
+    lines.push('💰 الإجمالي: '+money(order.total_price));
+    lines.push('');
+    lines.push('شكرًا ليك ❤️');
+    const whatsappUrl='https://wa.me/'+whatsappNumber+'?text='+encodeURIComponent(lines.join('\n'));
+    // Keep a success page as fallback, while sending the customer to WhatsApp after the order is saved.
+    window.location.href=`order-success.html?id=${encodeURIComponent(order.id)}&whatsapp=${encodeURIComponent(whatsappUrl)}`;
   }catch(e){alert(e.message||'حدث خطأ أثناء تسجيل الطلب');if(btn){btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-check"></i> تأكيد الطلب';}}
 }
 
