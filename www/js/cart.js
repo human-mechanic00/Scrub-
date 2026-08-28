@@ -51,13 +51,15 @@ async function checkoutOrder(){
   const btn=document.getElementById('checkoutBtn'); if(btn){btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> جاري تأكيد الطلب...';}
   try{
     const result=await apiFetch('/api/orders',{method:'POST',body:JSON.stringify({customer_name,customer_phone,governorate,area,customer_address,payment_method,coupon_code:appliedCoupon?.code||'',items:cart.map(p=>({product_id:Number(p.id),quantity:Number(p.quantity),options:(p.options && !Array.isArray(p.options) && typeof p.options==='object') ? p.options : {}}))})});
-    const order=result.order;
+    const order=result?.order || result;
+    const orderId = order?.id ?? result?.orderId ?? result?.id;
+    if (!orderId) throw new Error('تم تسجيل الطلب لكن لم يتم استلام رقم الطلب من الخادم');
     // Save the order first; only after a successful response do we clear the cart and open WhatsApp.
     cart=[]; appliedCoupon=null; saveCart(); updateCartCount();
     const whatsappNumber='201155747762';
     const lines=[];
     lines.push('السلام عليكم، عملت طلب من Human Mechanic 🩺');
-    lines.push('🆔 رقم الطلب: #'+order.id);
+    lines.push('🆔 رقم الطلب: #'+orderId);
     lines.push('👤 الاسم: '+customer_name);
     lines.push('📞 الهاتف: '+customer_phone);
     lines.push('📍 المحافظة: '+governorate);
@@ -79,8 +81,9 @@ async function checkoutOrder(){
     lines.push('شكرًا ليك ❤️');
     const whatsappUrl='https://wa.me/'+whatsappNumber+'?text='+encodeURIComponent(lines.join('\n'));
     // Keep a success page as fallback, while sending the customer to WhatsApp after the order is saved.
-    sessionStorage.setItem('lastOrder', JSON.stringify({id: order.id, whatsapp: whatsappUrl}));
-    window.location.href=`order-success.html?id=${encodeURIComponent(order.id)}&whatsapp=${encodeURIComponent(whatsappUrl)}`;
+    sessionStorage.setItem('lastOrder', JSON.stringify({id: orderId, whatsapp: whatsappUrl}));
+    // Keep the order id and WhatsApp link available even if the browser strips query parameters.
+    window.location.href=`order-success.html?order_id=${encodeURIComponent(orderId)}&whatsapp=${encodeURIComponent(whatsappUrl)}`;
   }catch(e){alert(e.message||'حدث خطأ أثناء تسجيل الطلب');if(btn){btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-check"></i> تأكيد الطلب';}}
 }
 

@@ -1,20 +1,31 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>تم استلام الطلب | Human Mechanic</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body><main class="success-page"><div class="success-card"><div class="success-icon">✓</div><h1>تم استلام طلبك بنجاح 🎉</h1><p>شكرًا ليك! طلبك اتسجل عندنا وهيتم التواصل معاك لتأكيده.</p><div class="order-number-box"><span>رقم الطلب</span><strong id="orderId">—</strong></div><p id="waStatus">جاري فتح واتساب لتأكيد الطلب...</p><a id="whatsappBtn" href="#" class="btn-primary" style="display:none">💬 تأكيد الطلب عبر واتساب</a><a href="products.html" class="btn-primary">العودة للمنتجات</a></div></main><style>.order-number-box{margin:18px 0;padding:14px 20px;border:1px solid rgba(0,0,0,.1);border-radius:12px;background:#f8f8f8}.order-number-box span{display:block;font-size:13px;opacity:.7;margin-bottom:4px}.order-number-box strong{font-size:24px;letter-spacing:1px}</style><script>
 (function(){
-  const params=new URLSearchParams(location.search);
-  const stored=JSON.parse(sessionStorage.getItem('lastOrder')||'null');
-  const orderId=params.get('id')||params.get('order_id')||(stored&&stored.id);
-  const whatsapp=params.get('whatsapp')||(stored&&stored.whatsapp);
+  const params=new URLSearchParams(window.location.search);
+  let stored=null;
+  try { stored=JSON.parse(sessionStorage.getItem('lastOrder')||'null'); } catch(e) {}
+  const orderId=params.get('order_id') || params.get('id') || params.get('orderId') || (stored && stored.id);
+  const whatsapp=params.get('whatsapp') || (stored && stored.whatsapp);
   const idEl=document.getElementById('orderId');
-  idEl.textContent=orderId ? '#'+orderId : 'تم التسجيل';
+  idEl.textContent=orderId ? '#'+orderId : 'غير متاح';
   const btn=document.getElementById('whatsappBtn');
   const status=document.getElementById('waStatus');
-  if(whatsapp){
-    btn.href=whatsapp; btn.style.display='inline-flex'; btn.target='_self'; btn.rel='noopener';
+  // The WhatsApp button is ALWAYS visible as a fallback.
+  if (whatsapp) {
+    btn.href=whatsapp;
+    btn.style.display='inline-flex';
+    btn.target='_self';
+    btn.rel='noopener';
     status.textContent='جاري تحويلك إلى واتساب...';
-    // Attempt automatic handoff; the visible button remains available if the browser blocks it.
-    setTimeout(function(){ window.location.assign(whatsapp); },300);
+    // Best-effort automatic handoff. Some mobile browsers may block external-app navigation.
+    setTimeout(function(){
+      try { window.location.replace(whatsapp); } catch(e) {}
+    }, 250);
   } else {
-    status.textContent='تم تسجيل طلبك بنجاح. يمكنك الرجوع للمنتجات.';
+    btn.style.display='inline-flex';
+    btn.removeAttribute('href');
+    btn.setAttribute('aria-disabled','true');
+    btn.onclick=function(){ alert('لم يتم تجهيز رابط واتساب للطلب. تواصل معنا يدويًا.'); return false; };
+    status.textContent='تم تسجيل طلبك بنجاح. يمكنك تأكيده عبر واتساب من الزر بالأسفل.';
   }
 })();
 </script></body></html>
